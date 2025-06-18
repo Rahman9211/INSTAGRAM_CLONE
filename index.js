@@ -11,17 +11,10 @@ app.get("/api/health", (req, res)=>{
     res.send({msg: "it me rahman insta"})
 })
 
-
-
-
 mongoose.connect(MONGO_URL)
 .then(()=> console.log("Database connected succesfully ..."))
 
 app.use(require("./controllers/auth"))
-
-
-
-
 
 app.listen(PORT,()=>{
     console.log(`server is running on port http://localhost:${PORT}`);
