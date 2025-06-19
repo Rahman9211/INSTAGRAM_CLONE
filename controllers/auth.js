@@ -50,7 +50,7 @@ router.post("/login", (req, res) => {
 
             bcrypt.compare(password, dbUser.password)
                 .then(dbUser => {
-                    const token = jwt.sign({ id: dbUser, _id }, SECRET_KEY)
+                    const token = jwt.sign({ id: dbUser._id }, SECRET_KEY);
                     return res.status(200).json({ msg: "Login successful", token });
                 });
 
