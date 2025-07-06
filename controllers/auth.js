@@ -18,6 +18,7 @@ router.post("/signup", (req, res) => {
             }
             bcrypt.hash(password, 12).then((hashedPassword) => {
                 const user = new User({
+                    // NAME,
                     name,
                     email,
                     password: hashedPassword,
@@ -29,6 +30,7 @@ router.post("/signup", (req, res) => {
                     const token = jwt.sign({ id: savedUser._id }, SECRET_KEY);
                     return res.status(200).json({ msg: "User saved successfully", token });
                 });
+
 
             });
         });
