@@ -24,10 +24,12 @@ module.exports = (req,res,next)=>{
         const {id} = payload
         // console.log(id);
 
-        User.findById(id) // ✅ Fixed typo: findbyId ➜ findById
+        User.findById(id) 
             .then(savedUser=>{
-                console.log("middleware:", savedUser); // ✅ Fixed syntax error
-                req.User = token
+                // console.log("middleware:", savedUser);                             
+             
+                req.user = savedUser
+                
                 next()
             })
     })

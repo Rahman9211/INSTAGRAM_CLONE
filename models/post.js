@@ -5,27 +5,32 @@ const postSchema = new mongoose.Schema({
 
     title: {
         type: String,
-        require: true
+        required: true
     },
     body: {
         type: String,
-        require: true
+        required: true
+    },
+
+    photos: {
+        type: String,
     },
     likes: [{
         type: ObjectId,
-        ref: User
+        ref: "User"
     }],
     Comment: [{
         text: String,
         postedBy: {
             type: ObjectId,
-            ref: User
+            ref: "User"
         }
     }],
     postedBy: {
-        type: ObjectId,
-        ref: User
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"  // ✅ Use string, not variable
     }
+
 
 })
 
